@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif !important;
+            background-color: #f8fbff !important;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh;
+            margin: 0; */
+        }
+
+        .container {
+            background-color: #ffffff !important;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            margin-left: 28%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #307aa4 !important;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            background-color: #007BFF !important;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #0056b3 !important;
+        }
+
+        .button-secondary {
+            background-color: #6c757d !important;
+        }
+
+        .button-secondary:hover {
+            background-color: #565e64 !important;
+        }
+
+        .button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Doctor Dashboard</h1>
+        <p>Welcome, {{ username }}!</p>
+        <div class="button-container">
+           
+            <a href="{% url 'my_blog_posts' %}" class="button button-primary">My Blog</a>
+            <!-- Add more buttons as needed -->
+        </div>
+    </div>
+{% endblock %}

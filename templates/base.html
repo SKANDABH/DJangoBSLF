@@ -1,0 +1,30 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>My Site</h1>
+    </header>
+    <nav>
+        <a class="option-link" href="{% url 'home' %}">Home</a>
+        <a class="option-link" href="{% url 'doctor_signup' %}">Register as Doctor</a>
+        <a class="option-link" href="{% url 'patient_signup' %}">Register as Patient</a>
+    </nav>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 My Site</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- templates/blog/posts_by_category.html -->
+
+{% extends 'base.html' %}
+{% load static %}  <!-- Add this line to load the static template tag library -->
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/category_posts.css' %}">
+{% endblock %}
+
+{% block content %}
+  <h2>Posts in {{ category.name }}</h2>
+  <div class="posts-container">
+    {% for post in posts %}
+    {% if not post.is_draft %}
+      <div class="post-box">
+        <div class="post-image-container">
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+        </div>
+        <div class="post-content">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.summary|truncatewords:15 }}...</p>
+          <a href="{% url 'post_detail' post.id %}" class="read-more">Read more</a>
+        </div>
+      </div>
+    {% endif %}
+    {% empty %}
+      <p>No posts available for this category.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
